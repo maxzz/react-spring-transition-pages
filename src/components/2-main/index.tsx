@@ -9,19 +9,20 @@ export function SectionMain() {
     const [index, set] = useState(0);
     const onClick = () => set(state => (state + 1) % 2);
 
-    const springRef = useSpringRef();
-    const transitions = useTransition(index, {
-        ref: springRef,
+    //const springRef = useSpringRef();
+    const [transitions, api] = useTransition(index, () => ({
+        //ref: springRef,
         //keys: (item) => item,
         keys: null,
         from: { opacity: 0.3, transform: 'translate3d(100%,0,0)' },
         to: { opacity: 1, transform: 'translate3d(0%,0,0)' },
         leave: { opacity: 0.3, transform: 'translate3d(-50%,0,0)' },
         config: { duration: 62000 },
-    });
+    }));
 
     useEffect(() => {
-        springRef.start();
+        //springRef.start();
+        api.start();
     }, [index]);
 
     return (
