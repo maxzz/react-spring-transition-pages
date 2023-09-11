@@ -14,10 +14,10 @@ export function SectionMain() {
         ref: springRef,
         //keys: (item) => item,
         keys: null,
-        from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
+        from: { opacity: 0.3, transform: 'translate3d(100%,0,0)' },
         to: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-        leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
-        config: { duration: 2000 },
+        leave: { opacity: 0.3, transform: 'translate3d(-50%,0,0)' },
+        config: { duration: 62000 },
     });
 
     useEffect(() => {
@@ -32,7 +32,7 @@ export function SectionMain() {
 
                 const Component = Components[item];
                 return (
-                    <a.div style={style}>
+                    <a.div style={style} className="border-red-500 border">
                         <Component />
                     </a.div>
                 );
