@@ -1,9 +1,7 @@
-import './App.css';
-
 export function App() {
     return (
         <>
-            <div>
+            <div className="h-screen text-2xl bg-slate-500">
                 Latest from react-spring
             </div>
         </>
