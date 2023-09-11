@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function SigninPage() {
     return (
         <div className="w-96 h-64 border-slate-600 border rounded shadow">
