@@ -15,7 +15,7 @@ export function TestForms() {
         //keys: (item) => item,
         keys: null,
         from: { opacity: 0.3, transform: 'translate3d(100%,0,0)' },
-        to: { opacity: 1, transform: 'translate3d(0%,0,0)' },
+        enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
         leave: { opacity: 0.3, transform: 'translate3d(-50%,0,0)' },
         config: { duration: 1000 },
     }));
