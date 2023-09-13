@@ -29,7 +29,7 @@ export function TestForms() {
     }, [index]);
 
     return (
-        <div className="flex justify-center h-full" onClick={onClick}>
+        <div className="flex justify-center" onClick={onClick}>
 
             {transitions((style, item) => {
                 console.log('style =', style, 'item =', item);

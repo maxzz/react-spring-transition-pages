@@ -8,7 +8,7 @@ const pages: ((props: AnimatedProps<{ style: React.CSSProperties }>) => React.Re
     ({ style }) => <animated.div style={{ ...style, background: 'lightgreen' }}>C</animated.div>,
 ];
 
-export default function App() {
+export function TestPages() {
     const [index, set] = useState(0);
     const onClick = useCallback(() => set(state => (state + 1) % 3), []);
     const transRef = useSpringRef();
