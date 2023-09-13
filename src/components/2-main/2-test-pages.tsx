@@ -27,7 +27,7 @@ export function TestPages() {
     }, [transRef, index]);
 
     return (
-        <div className={`flex fill ${styles.container}`} onClick={onClick}>
+        <div className={`h-56 flex fill ${styles.container}`} onClick={onClick}>
             {transitions((style, i) => {
                 const Page = pages[i];
                 return <Page style={style} />;
