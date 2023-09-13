@@ -3,7 +3,7 @@ import { TestPages } from './2-test-pages';
 
 export function SectionMain() {
     return (
-        <div className="h-full">
+        <div className="h-full flex flex-col gap-4">
             <TestForms />
             <TestPages />
         </div>

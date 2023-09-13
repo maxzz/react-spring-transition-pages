@@ -1,11 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useTransition, animated, AnimatedProps, useSpringRef } from '@react-spring/web';
-import styles from './styles.module.css';
+//import styles from './styles.module.css';
 
-const pages: ((props: AnimatedProps<{ style: React.CSSProperties }>) => React.ReactElement)[] = [
-    ({ style }) => <animated.div style={{ ...style, background: 'lightpink' }}>A</animated.div>,
-    ({ style }) => <animated.div style={{ ...style, background: 'lightblue' }}>B</animated.div>,
-    ({ style }) => <animated.div style={{ ...style, background: 'lightgreen' }}>C</animated.div>,
+const childClasses = "absolute w-full h-full text-[16rem] font-bold flex items-center justify-center";
+
+const pages: ((props: AnimatedProps<{ style: React.CSSProperties; }>) => React.ReactElement)[] = [
+    ({ style }) => <animated.div className={childClasses} style={{ ...style, background: 'lightpink' }}><div>A</div></animated.div>,
+    ({ style }) => <animated.div className={childClasses} style={{ ...style, background: 'lightblue' }}><div>B</div></animated.div>,
+    ({ style }) => <animated.div className={childClasses} style={{ ...style, background: 'lightgreen' }}><div>C</div></animated.div>,
 ];
 
 export function TestPages() {
@@ -27,7 +29,7 @@ export function TestPages() {
     }, [transRef, index]);
 
     return (
-        <div className={`h-56 flex fill ${styles.container}`} onClick={onClick}>
+        <div className={`relative h-56 overflow-hidden`} onClick={onClick}>
             {transitions((style, i) => {
                 const Page = pages[i];
                 return <Page style={style} />;
