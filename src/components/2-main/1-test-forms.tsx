@@ -9,23 +9,18 @@ export function TestForms() {
     const [index, set] = useState(0);
     const onClick = () => set(state => (state + 1) % 2);
 
-    //const springRef = useSpringRef();
-    const [transitions, api] = useTransition(index, () => ({
-        //ref: springRef,
-        //keys: (item) => item,
+    const springRef = useSpringRef();
+    const transitions = useTransition(index, {
+        ref: springRef,
         keys: null,
         from: { opacity: 0.3, transform: 'translate3d(100%,0,0)' },
         enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
         leave: { opacity: 0.3, transform: 'translate3d(-50%,0,0)' },
         config: { duration: 1000 },
-    }));
+    });
 
     useEffect(() => {
-        //springRef.start();
-        api.start({
-            opacity: 1,
-            transform: 'translate3d(20%,0,0)',
-        });
+        springRef.start();
     }, [index]);
 
     return (
