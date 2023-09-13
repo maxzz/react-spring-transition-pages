@@ -13,10 +13,10 @@ export function TestForms() {
     const transitions = useTransition(index, {
         ref: springRef,
         keys: null,
-        from: { opacity: 0.3, transform: 'translate3d(100%,0,0)' },
+        from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
         enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-        leave: { opacity: 0.3, transform: 'translate3d(-50%,0,0)' },
-        config: { duration: 1000 },
+        leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
+        config: { duration: 1200 },
     });
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export function TestForms() {
     }, [index]);
 
     return (
-        <div className="flex justify-center" onClick={onClick}>
+        <div className="flex justify-center overflow-hidden" onClick={onClick}>
 
             {transitions((style, item) => {
                 console.log('style =', style, 'item =', item);
