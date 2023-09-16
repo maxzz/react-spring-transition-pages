@@ -1,4 +1,4 @@
-import { a, useSpringRef, useTransition } from '@react-spring/web';
+import { a, easings, useSpringRef, useTransition } from '@react-spring/web';
 import { LoginPage, SigninPage } from '../pages';
 import { useEffect, useState } from 'react';
 
@@ -15,8 +15,8 @@ export function TestForms() {
         keys: null,
         from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
         enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-        leave: { opacity: 0, transform: 'translate3d(-50%,0,0)', config: { duration: 2000 } },
-        config: { duration: 3000 },
+        leave: { opacity: 0, transform: 'translate3d(-50%,0,0)', config: { easing: easings.easeInExpo } },
+        config: { duration: 300 },
     });
 
     useEffect(() => {
