@@ -1,6 +1,6 @@
 import { a, useTransition } from "@react-spring/web";
 import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
-import { classNames } from "../../utils";
+import { classNames } from "../../utils"; //https://codesandbox.io/s/react-router-animated-transitions-w-react-spring-not-working-lwyrj7
 
 export function PagesRouterBody() {
     const location = useLocation();
@@ -21,7 +21,7 @@ export function PagesRouterBody() {
             </div>
 
             {transitions((styles) => (
-                <a.div style={styles} className="relative max-w-xs">
+                <a.div style={styles} className="relative max-w-xs h-full overflow-hidden">
                     <Routes location={location}>
                         <Route path="a" element={<A />} />
                         <Route path="b" element={<B />} />
@@ -42,28 +42,36 @@ export function PagesRouter() {
     );
 }
 
-const PageClasses = "absolute w-full h-full";
+const PageClasses = "absolute w-full h-full flex items-center justify-center";
 
-const A = () => (
-    <div className={classNames(PageClasses, "bg-purple-300")}>
-        <Link to="/b">A</Link>
-    </div>
-);
+const A = () => {
+    return (
+        < div className={classNames(PageClasses, "bg-purple-300")} >
+            <Link to="/b">A</Link>
+        </div >
+    );
+};
 
-const B = () => (
-    <div className={classNames(PageClasses, "bg-red-300")}>
-        <Link to="/c">B</Link>
-    </div>
-);
+const B = () => {
+    return (
+        < div className={classNames(PageClasses, "bg-red-300")} >
+            <Link to="/c">B</Link>
+        </div >
+    );
+};
 
-const C = () => (
-    <div className={classNames(PageClasses, "bg-orange-500")}>
-        <Link to="/a">C</Link>
-    </div>
-);
+const C = () => {
+    return (
+        < div className={classNames(PageClasses, "bg-orange-500")} >
+            <Link to="/">C</Link>
+        </div >
+    );
+};
 
-const D = () => (
-    <div className={classNames(PageClasses, "bg-orange-500")}>
-        <Link to="/">Index Page</Link>
-    </div>
-);
+const D = () => {
+    return (
+        <div className={classNames(PageClasses, "bg-zinc-100")}>
+            <Link to="/a">Index Page</Link>
+        </div>
+    );
+};
