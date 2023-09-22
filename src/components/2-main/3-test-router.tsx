@@ -12,10 +12,13 @@ export function PagesRouterBody() {
 
     return (
         <div>
-            <Link to="/a">A</Link>
-            <Link to="/b">B</Link>
-            <Link to="/c">C</Link>
-            <Link to="/d">No page</Link>
+            <div className="py-4 flex space-x-4">
+                <Link to="/a" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">A</Link>
+                <Link to="/b" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">B</Link>
+                <Link to="/c" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">C</Link>
+                <Link to="/d" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">No page</Link>
+            </div>
+
             {transitions((styles) => (
                 <a.div style={styles}>
                     <Routes location={location}>
