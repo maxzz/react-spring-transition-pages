@@ -17,15 +17,16 @@ export function PagesRouterBody() {
                 <Link to="/a" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">A</Link>
                 <Link to="/b" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">B</Link>
                 <Link to="/c" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">C</Link>
-                <Link to="/d" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">No page</Link>
+                <Link to="/ " className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">Index page</Link>
             </div>
 
             {transitions((styles) => (
-                <a.div style={styles}>
+                <a.div style={styles} className="relative max-w-xs">
                     <Routes location={location}>
                         <Route path="a" element={<A />} />
                         <Route path="b" element={<B />} />
                         <Route path="c" element={<C />} />
+                        <Route path="/" element={<D />} />
                     </Routes>
                 </a.div>
             ))}
@@ -41,7 +42,7 @@ export function PagesRouter() {
     );
 }
 
-const PageClasses = "";
+const PageClasses = "absolute w-full h-full";
 
 const A = () => (
     <div className={classNames(PageClasses, "bg-purple-300")}>
@@ -58,5 +59,11 @@ const B = () => (
 const C = () => (
     <div className={classNames(PageClasses, "bg-orange-500")}>
         <Link to="/a">C</Link>
+    </div>
+);
+
+const D = () => (
+    <div className={classNames(PageClasses, "bg-orange-500")}>
+        <Link to="/">Index Page</Link>
     </div>
 );
