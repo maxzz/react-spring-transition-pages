@@ -1,5 +1,6 @@
 import { a, useTransition } from "@react-spring/web";
 import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
+import { twMerge } from 'tailwind-merge';
 
 export function PagesRouterBody() {
     const location = useLocation();
@@ -40,20 +41,22 @@ export function PagesRouter() {
     );
 }
 
+const PageClasses = "";
+
 const A = () => (
-    <div style={{ background: 'lightpink' }}>
+    <div className={twMerge(PageClasses, "bg-purple-300")}>
         <Link to="/b">A</Link>
     </div>
 );
 
 const B = () => (
-    <div style={{ background: 'lightblue' }}>
+    <div className={twMerge(PageClasses, "bg-red-300")}>
         <Link to="/c">B</Link>
     </div>
 );
 
 const C = () => (
-    <div style={{ background: 'lightgreen' }}>
+    <div className={twMerge(PageClasses, "bg-orange-500")}>
         <Link to="/a">C</Link>
     </div>
 );
