@@ -14,14 +14,14 @@ export function PagesRouterBody() {
     return (
         <div>
             <div className="py-4 flex space-x-4">
-                <Link to="/a" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">A</Link>
-                <Link to="/b" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">B</Link>
-                <Link to="/c" className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">C</Link>
-                <Link to="/ " className="px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow">Index page</Link>
+                <Link to="/a" className={linkClasses}>A</Link>
+                <Link to="/b" className={linkClasses}>B</Link>
+                <Link to="/c" className={linkClasses}>C</Link>
+                <Link to="/ " className={linkClasses}>Index page</Link>
             </div>
 
             {transitions((styles) => (
-                <a.div style={styles} className="relative max-w-xs h-full overflow-hidden">
+                <a.div style={styles} className={parentClasses}>
                     <Routes location={location}>
                         <Route path="a" element={<A />} />
                         <Route path="b" element={<B />} />
@@ -42,35 +42,37 @@ export function PagesRouter() {
     );
 }
 
-const PageClasses = "absolute w-full h-full flex items-center justify-center";
+const linkClasses = "px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow";
+const parentClasses = "relative max-w-xs h-full overflow-hidden";
+const childClasses = "absolute w-full h-full flex items-center justify-center";
 
 const A = () => {
     return (
-        < div className={classNames(PageClasses, "bg-purple-300")} >
+        <div className={classNames(childClasses, "bg-purple-300")} >
             <Link to="/b">A</Link>
-        </div >
+        </div>
     );
 };
 
 const B = () => {
     return (
-        < div className={classNames(PageClasses, "bg-red-300")} >
+        <div className={classNames(childClasses, "bg-red-300")} >
             <Link to="/c">B</Link>
-        </div >
+        </div>
     );
 };
 
 const C = () => {
     return (
-        < div className={classNames(PageClasses, "bg-orange-500")} >
+        <div className={classNames(childClasses, "bg-orange-500")} >
             <Link to="/">C</Link>
-        </div >
+        </div>
     );
 };
 
 const D = () => {
     return (
-        <div className={classNames(PageClasses, "bg-zinc-100")}>
+        <div className={classNames(childClasses, "bg-zinc-100")}>
             <Link to="/a">Index Page</Link>
         </div>
     );
