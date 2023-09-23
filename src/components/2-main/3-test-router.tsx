@@ -12,7 +12,7 @@ export function PagesRouterBody() {
     });
 
     return (
-        <div>
+        <div className="mx-auto">
             <div className="py-4 flex space-x-4">
                 <Link to="/a" className={linkClasses}>A</Link>
                 <Link to="/b" className={linkClasses}>B</Link>
@@ -20,16 +20,18 @@ export function PagesRouterBody() {
                 <Link to="/ " className={linkClasses}>Index page</Link>
             </div>
 
-            {transitions((styles) => (
-                <a.div style={styles} className={parentClasses}>
-                    <Routes location={location}>
-                        <Route path="a" element={<A />} />
-                        <Route path="b" element={<B />} />
-                        <Route path="c" element={<C />} />
-                        <Route path="/" element={<D />} />
-                    </Routes>
-                </a.div>
-            ))}
+            <div className="relative overflow-hidden">
+                {transitions((styles) => (
+                    <a.div style={styles} className={parentClasses}>
+                        <Routes location={location}>
+                            <Route path="a" element={<A />} />
+                            <Route path="b" element={<B />} />
+                            <Route path="c" element={<C />} />
+                            <Route path="/" element={<D />} />
+                        </Routes>
+                    </a.div>
+                ))}
+            </div>
         </div>
     );
 }
@@ -42,38 +44,48 @@ export function PagesRouter() {
     );
 }
 
-const linkClasses = "px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow";
-const parentClasses = "relative max-w-xs h-full overflow-hidden";
-const childClasses = "absolute w-full h-full flex items-center justify-center";
+const linkClasses = "px-4 py-2 min-w-[6ch] text-center bg-zinc-100 rounded shadow select-none";
+
+const parentClasses = "relative max-w-xs h-28";
+const childClasses = "absolute top-0 w-full h-full flex items-center justify-center";
 
 const A = () => {
     return (
-        <div className={classNames(childClasses, "bg-purple-300")} >
-            <Link to="/b">A</Link>
-        </div>
+        <Link to="/b">
+            <div className={classNames(childClasses, "bg-purple-300")} >
+                A
+            </div>
+        </Link>
+
     );
 };
 
 const B = () => {
     return (
-        <div className={classNames(childClasses, "bg-red-300")} >
-            <Link to="/c">B</Link>
-        </div>
+        <Link to="/c">
+            <div className={classNames(childClasses, "bg-red-300")} >
+                B
+            </div>
+        </Link>
     );
 };
 
 const C = () => {
     return (
-        <div className={classNames(childClasses, "bg-orange-500")} >
-            <Link to="/">C</Link>
-        </div>
+        <Link to="/">
+            <div className={classNames(childClasses, "bg-orange-500")} >
+                C
+            </div>
+        </Link>
     );
 };
 
 const D = () => {
     return (
-        <div className={classNames(childClasses, "bg-zinc-100")}>
-            <Link to="/a">Index Page</Link>
-        </div>
+        <Link to="/a">
+            <div className={classNames(childClasses, "bg-zinc-100")}>
+                Index Page
+            </div>
+        </Link>
     );
 };
