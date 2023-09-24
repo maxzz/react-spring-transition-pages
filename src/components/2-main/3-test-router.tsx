@@ -21,9 +21,9 @@ export function PagesRouterBody() {
             </div>
 
             <div className="relative overflow-hidden">
-                {transitions((styles) => (
+                {transitions((styles, item) => (
                     <a.div style={styles} className={parentClasses}>
-                        <Routes location={location}>
+                        <Routes location={item}>
                             <Route path="a" element={<A />} />
                             <Route path="b" element={<B />} />
                             <Route path="c" element={<C />} />
